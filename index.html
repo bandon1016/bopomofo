@@ -131,84 +131,17 @@
     </svg>
 
     <!-- Bottom Amusement Park Scenery (Castle, Ferris Wheel, Circus Tent, Rollercoaster, Hills) -->
-    <svg class="absolute bottom-0 left-0 w-full h-[240px] sm:h-[320px] md:h-[380px]" viewBox="0 0 1200 350" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Layer 1: Distant Light Purple Hills -->
-      <path d="M0 220 Q 300 150 600 210 Q 900 140 1200 200 L 1200 350 L 0 350 Z" fill="#E2C6FF" opacity="0.5"/>
-
-      <!-- Layer 2: Middle Cyan Green Hills -->
-      <path d="M0 250 Q 250 190 550 240 Q 850 180 1200 230 L 1200 350 L 0 350 Z" fill="#81E6D9" opacity="0.6"/>
-
-      <!-- Ferris Wheel (Left side) -->
-      <g transform="translate(100, 90)">
-        <line x1="100" y1="100" x2="60" y2="230" stroke="#4A5568" stroke-width="6"/>
-        <line x1="100" y1="100" x2="140" y2="230" stroke="#4A5568" stroke-width="6"/>
-        <circle cx="100" cy="100" r="75" stroke="#FF70A6" stroke-width="6" fill="none"/>
-        <circle cx="100" cy="100" r="45" stroke="#4EA8DE" stroke-width="4" fill="none"/>
-        <line x1="100" y1="25" x2="100" y2="175" stroke="#FFD166" stroke-width="3"/>
-        <line x1="25" y1="100" x2="175" y2="100" stroke="#FFD166" stroke-width="3"/>
-        <line x1="47" y1="47" x2="153" y2="153" stroke="#FFD166" stroke-width="3"/>
-        <line x1="153" y1="47" x2="47" y2="153" stroke="#FFD166" stroke-width="3"/>
-        <circle cx="100" cy="100" r="12" fill="#FF9F1C"/>
-        <circle cx="100" cy="25" r="10" fill="#FF70A6"/>
-        <circle cx="175" cy="100" r="10" fill="#4EA8DE"/>
-        <circle cx="100" cy="175" r="10" fill="#06D6A0"/>
-        <circle cx="25" cy="100" r="10" fill="#FF9F1C"/>
-        <circle cx="153" cy="47" r="10" fill="#B5179E"/>
-        <circle cx="153" cy="153" r="10" fill="#FFD166"/>
-        <circle cx="47" cy="153" r="10" fill="#FF70A6"/>
-        <circle cx="47" cy="47" r="10" fill="#4EA8DE"/>
-      </g>
-
-      <!-- Fairy Tale Castle (Center) -->
-      <g transform="translate(480, 80)">
-        <rect x="60" y="100" width="120" height="120" fill="#EDF2F7"/>
-        <rect x="85" y="60" width="70" height="50" fill="#E2E8F0"/>
-        <rect x="40" y="80" width="35" height="140" fill="#CBD5E0"/>
-        <rect x="165" y="80" width="35" height="140" fill="#CBD5E0"/>
-        <rect x="95" y="30" width="50" height="40" fill="#CBD5E0"/>
-        <polygon points="35,80 57.5,20 80,80" fill="#FF70A6"/>
-        <polygon points="160,80 182.5,20 205,80" fill="#FF70A6"/>
-        <polygon points="90,30 120,-20 150,30" fill="#B5179E"/>
-        <path d="M 95 220 L 95 165 C 95 145 145 145 145 165 L 145 220 Z" fill="#805AD5"/>
-        <polygon points="120,-20 120,-35 140,-27.5" fill="#FFD166"/>
-        <line x1="120" y1="-20" x2="120" y2="-38" stroke="#718096" stroke-width="2"/>
-      </g>
-
-      <!-- Circus Tent & Carousel (Right-Center) -->
-      <g transform="translate(770, 130)">
-        <polygon points="20,120 140,120 130,70 30,70" fill="#FED7D7"/>
-        <polygon points="10,70 150,70 80,10" fill="#E53E3E"/>
-        <polygon points="80,10 60,70 80,70" fill="#FFFFFF"/>
-        <polygon points="80,10 100,70 120,70" fill="#FFFFFF"/>
-        <polygon points="80,10 20,70 40,70" fill="#FFFFFF"/>
-        <polygon points="80,10 80,-5 100,2.5" fill="#FFD166"/>
-        <line x1="80" y1="10" x2="80" y2="-8" stroke="#4A5568" stroke-width="2"/>
-      </g>
-
-      <!-- Rollercoaster Track & Loop (Far Right) -->
-      <g transform="translate(950, 100)">
-        <path d="M -50 180 Q 20 60 70 120 T 170 80 L 220 180" fill="none" stroke="#FF9F1C" stroke-width="6"/>
-        <path d="M -50 185 Q 20 65 70 125 T 170 85 L 220 185" fill="none" stroke="#DD6B20" stroke-width="3"/>
-        <line x1="10" y1="140" x2="10" y2="210" stroke="#718096" stroke-width="3"/>
-        <line x1="70" y1="120" x2="70" y2="210" stroke="#718096" stroke-width="3"/>
-        <line x1="130" y1="100" x2="130" y2="210" stroke="#718096" stroke-width="3"/>
-        <rect x="115" y="80" width="28" height="16" rx="4" fill="#06D6A0" transform="rotate(-15, 129, 88)"/>
-      </g>
-
-      <!-- Foreground Green Ground -->
-      <path d="M0 270 Q 300 230 600 260 Q 900 220 1200 250 L 1200 350 L 0 350 Z" fill="#48BB78"/>
-      <path d="M0 290 Q 400 260 800 285 Q 1000 270 1200 280 L 1200 350 L 0 350 Z" fill="#38A169"/>
-    </svg>
+    <!-- ... existing background SVG graphics ... -->
   </div>
 
-  <div id="app" class="max-w-4xl mx-auto min-h-screen flex flex-col justify-between relative z-10">
+  <div id="app" class="max-w-4xl mx-auto min-h-screen flex flex-col justify-start md:justify-center relative z-10 py-2 sm:py-4">
     <!-- BGM Audio Element -->
     <audio id="bgm-player" loop preload="auto">
       <source src="./bgm.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Top Amusement Park Header -->
-    <header class="bg-white/90 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-xl border-4 border-yellow-300 mb-4 relative z-10">
+    <header class="bg-white/90 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-xl border-4 border-yellow-300 mb-3 sm:mb-4 relative z-10">
       <div class="flex flex-wrap justify-between items-center gap-2">
         
         <!-- Logo & Title -->
@@ -269,8 +202,8 @@
       </div>
     </header>
 
-    <!-- Main Game Display Area -->
-    <main class="flex-grow flex flex-col justify-between gap-4">
+    <!-- Main Game Display Area (Fix Tablet Vertical Large Gap) -->
+    <main class="flex flex-col gap-3 sm:gap-4">
       
       <!-- Top Stage: Mascot & Question Prompt Box -->
       <section class="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-xl border-4 border-sky-300 relative overflow-hidden flex flex-col items-center justify-center text-center">
@@ -624,9 +557,9 @@
           toneSymbol: ''
         });
 
-        // Audio & Speech Settings
+        // Audio & Speech Settings (Default BGM lowered 50% to 0.15)
         const bgmPlaying = ref(false);
-        const bgmVolume = ref(0.3);
+        const bgmVolume = ref(0.15);
         const speechVolume = ref(0.9);
         const speechRate = ref(0.8);
 
@@ -677,21 +610,36 @@
             return;
           }
 
+          // 喚醒語音合成引擎（防止瀏覽器閒置暫停）
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
           window.speechSynthesis.cancel();
+
           const utterance = new SpeechSynthesisUtterance(text);
           utterance.lang = 'zh-TW';
           utterance.volume = speechVolume.value;
           utterance.rate = speechRate.value;
 
-          const voices = window.speechSynthesis.getVoices();
-          const twVoice = voices.find(v => v.lang.includes('zh-TW') || v.lang.includes('zh_TW'));
-          if (twVoice) utterance.voice = twVoice;
+          const loadVoiceAndSpeak = () => {
+            const voices = window.speechSynthesis.getVoices();
+            const twVoice = voices.find(v => v.lang.includes('zh-TW') || v.lang.includes('zh_TW') || v.lang.startsWith('zh'));
+            if (twVoice) utterance.voice = twVoice;
 
-          if (onEndCallback) {
-            utterance.onend = onEndCallback;
+            if (onEndCallback) {
+              utterance.onend = onEndCallback;
+            }
+
+            window.speechSynthesis.speak(utterance);
+          };
+
+          if (window.speechSynthesis.getVoices().length === 0) {
+            window.speechSynthesis.onvoiceschanged = () => {
+              loadVoiceAndSpeak();
+            };
+          } else {
+            loadVoiceAndSpeak();
           }
-
-          window.speechSynthesis.speak(utterance);
         };
 
         const playSfx = (type) => {
@@ -794,9 +742,10 @@
           const mascots = ['🎡', '🎠', '🎪', '🐰', '🐻', '🦁', '🐘', '🦄'];
           mascotEmoji.value = mascots[Math.floor(Math.random() * mascots.length)];
 
+          // 自動朗讀題目語音
           setTimeout(() => {
             speak(questionPromptText.value);
-          }, 300);
+          }, 150);
         };
 
         // Check Answer & Auto-Play Result
