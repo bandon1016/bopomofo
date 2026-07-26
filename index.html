@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>🎡 奇幻注音童話樂園 - 幼兒注音拼音學習網頁</title>
 
   <!-- Tailwind CSS CDN -->
@@ -39,9 +39,13 @@
   </script>
 
   <style>
-    body {
+    html, body {
+      height: 100%;
+      height: 100dvh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
       font-family: 'Noto Sans TC', 'Fredoka', sans-serif;
-      min-height: 100vh;
       user-select: none;
       -webkit-user-select: none;
       touch-action: manipulation;
@@ -50,25 +54,25 @@
     /* Bouncy 3D Park Buttons */
     .btn-3d {
       transition: all 0.1s ease;
-      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
     }
     .btn-3d:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
     }
 
     .key-btn {
-      transition: all 0.15s ease;
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+      transition: all 0.12s ease;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
     }
     .key-btn:active {
-      transform: translateY(3px);
+      transform: translateY(2px);
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     }
 
     @keyframes mascotBounce {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(4deg); }
+      50% { transform: translateY(-5px) rotate(3deg); }
     }
     .animate-mascot {
       animation: mascotBounce 2.5s infinite ease-in-out;
@@ -84,7 +88,7 @@
   </style>
 </head>
 
-<body class="p-2 sm:p-4 text-slate-800 overflow-x-hidden relative min-h-screen">
+<body class="p-1.5 sm:p-3 text-slate-800 relative bg-sky-200">
 
   <!-- Fixed Theme Park Background Illustration (Static SVG Scenery) -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
@@ -92,9 +96,8 @@
     <div class="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-100 to-pink-100"></div>
 
     <!-- Top Hanging Bunting Banner (彩旗) -->
-    <svg class="absolute top-0 left-0 w-full h-12 sm:h-16" viewBox="0 0 1000 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute top-0 left-0 w-full h-8 sm:h-12" viewBox="0 0 1000 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,0 Q250,30 500,10 Q750,30 1000,0" fill="none" stroke="#FFD166" stroke-width="3" stroke-dasharray="6,4"/>
-      <!-- Flag triangles -->
       <polygon points="20,2 40,32 60,4" fill="#FF70A6"/>
       <polygon points="100,8 120,38 140,10" fill="#4EA8DE"/>
       <polygon points="180,12 200,42 220,13" fill="#06D6A0"/>
@@ -109,225 +112,188 @@
       <polygon points="900,6 920,34 940,3" fill="#FFD166"/>
     </svg>
 
-    <!-- Sky Clouds, Sun and Hot Air Balloons -->
-    <svg class="absolute top-8 left-0 w-full h-40" viewBox="0 0 1000 150" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hot Air Balloon Left -->
-      <g transform="translate(50, 15) scale(0.75)">
-        <path d="M30 10 C10 10 0 30 0 50 C0 70 20 85 30 95 C40 85 60 70 60 50 C60 30 50 10 30 10 Z" fill="#FF70A6"/>
-        <path d="M15 20 C22 35 22 65 15 80" fill="none" stroke="#FFD166" stroke-width="4"/>
-        <path d="M45 20 C38 35 38 65 45 80" fill="none" stroke="#FFD166" stroke-width="4"/>
-        <rect x="23" y="103" width="14" height="12" rx="2" fill="#B5179E"/>
-        <line x1="20" y1="95" x2="25" y2="103" stroke="#888" stroke-width="1.5"/>
-        <line x1="40" y1="95" x2="35" y2="103" stroke="#888" stroke-width="1.5"/>
+    <!-- Sky Clouds and Sun -->
+    <svg class="absolute top-4 left-0 w-full h-24" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(880, 5)">
+        <circle cx="25" cy="25" r="18" fill="#FFD166"/>
+        <path d="M25 2 L25 0 M25 48 L25 50 M2 L25 L0 25 M48 25 L50 25" stroke="#FF9F1C" stroke-width="3" stroke-linecap="round"/>
       </g>
-      <!-- Sun with Cute Rays Top Right -->
-      <g transform="translate(880, 15)">
-        <circle cx="35" cy="35" r="22" fill="#FFD166"/>
-        <path d="M35 5 L35 0 M35 65 L35 70 M5 35 L0 35 M65 35 L70 35 M14 14 L10 10 M56 56 L60 60 M14 56 L10 60 M56 14 L60 10" stroke="#FF9F1C" stroke-width="4" stroke-linecap="round"/>
-      </g>
-      <!-- Soft Clouds -->
-      <path d="M 230 45 Q 250 25 280 35 Q 310 15 340 35 Q 370 25 390 45 Q 400 65 370 75 L 230 75 Z" fill="white" opacity="0.75"/>
-      <path d="M 680 60 Q 700 40 730 50 Q 760 30 790 50 Q 820 40 840 60 Q 850 80 820 90 L 680 90 Z" fill="white" opacity="0.65"/>
+      <path d="M 100 25 Q 120 10 140 20 Q 160 5 180 20 Q 200 10 210 25 Q 220 35 200 45 L 100 45 Z" fill="white" opacity="0.65"/>
+      <path d="M 680 30 Q 700 15 720 25 Q 740 10 760 25 Q 780 15 790 30 Q 800 40 780 50 L 680 50 Z" fill="white" opacity="0.55"/>
     </svg>
-
-    <!-- Bottom Amusement Park Scenery (Castle, Ferris Wheel, Circus Tent, Rollercoaster, Hills) -->
-    <!-- ... existing background SVG graphics ... -->
   </div>
 
-  <div id="app" class="max-w-4xl mx-auto min-h-screen flex flex-col justify-start md:justify-center relative z-10 py-2 sm:py-4">
+  <div id="app" class="max-w-4xl mx-auto h-full flex flex-col justify-between relative z-10 overflow-hidden">
     <!-- BGM Audio Element -->
     <audio id="bgm-player" loop preload="auto">
       <source src="./bgm.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Top Amusement Park Header -->
-    <header class="bg-white/90 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-xl border-4 border-yellow-300 mb-3 sm:mb-4 relative z-10">
-      <div class="flex flex-wrap justify-between items-center gap-2">
-        
+    <!-- Initial Touch Unlock Overlay for Mobile/Tablet Browser Speech Audio Restrictions -->
+    <div v-if="!audioUnlocked" class="fixed inset-0 z-50 bg-sky-900/70 backdrop-blur-md flex flex-col items-center justify-center p-4 text-center">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border-4 border-yellow-300 shadow-2xl max-w-sm flex flex-col items-center gap-4 animate-bounce">
+        <div class="text-6xl">🎠</div>
+        <h2 class="text-2xl font-black text-pink-600">歡迎來到奇幻注音樂園！</h2>
+        <p class="text-sm font-bold text-slate-600">點擊下方按鈕啟動聲音與語音朗讀功能哦！</p>
+        <button @click="unlockAudioContext" class="btn-3d px-8 py-3 bg-gradient-to-r from-emerald-400 to-green-500 text-white font-black text-xl rounded-2xl border-2 border-green-600 shadow-lg">
+          🎈 點我開始玩！
+        </button>
+      </div>
+    </div>
+
+    <!-- Header Section (Compact for 100dvh) -->
+    <header class="bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-3 shadow-md border-2 sm:border-4 border-yellow-300 relative z-10 flex-none">
+      <div class="flex items-center justify-between gap-1 sm:gap-2">
         <!-- Logo & Title -->
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-tr from-pink-400 to-yellow-300 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl shadow-md transform -rotate-3">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 sm:w-11 sm:h-11 bg-gradient-to-tr from-pink-400 to-yellow-300 rounded-xl flex items-center justify-center text-white text-xl sm:text-2xl shadow-xs">
             🎪
           </div>
           <div>
-            <h1 class="text-xl sm:text-2xl font-black text-pink-600 tracking-wide drop-shadow-sm flex items-center gap-2">
-              奇幻注音童話樂園
-            </h1>
-            <p class="text-xs sm:text-sm text-sky-600 font-bold">快樂學拼音 • 聽說拼全會</p>
+            <h1 class="text-base sm:text-xl font-black text-pink-600 tracking-wide">奇幻注音童話樂園</h1>
+            <p class="text-[10px] sm:text-xs text-sky-600 font-bold hidden sm:block">快樂學拼音 • 聽說拼全會</p>
           </div>
         </div>
 
-        <!-- Controls: Audio, Stats, Mode -->
-        <div class="flex items-center gap-2 flex-wrap">
-          <!-- BGM Toggle Button -->
+        <!-- Controls: Audio & Stats -->
+        <div class="flex items-center gap-1.5">
           <button @click="toggleBgm" 
-                  class="btn-3d px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition"
+                  class="btn-3d px-2 sm:px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1"
                   :class="bgmPlaying ? 'bg-emerald-400 text-white' : 'bg-slate-200 text-slate-600'">
             <i class="fa-solid" :class="bgmPlaying ? 'fa-music animate-spin' : 'fa-volume-xmark'"></i>
-            <span>{{ bgmPlaying ? '背景音樂: 開' : '背景音樂: 關' }}</span>
+            <span class="hidden sm:inline">{{ bgmPlaying ? '音樂:開' : '音樂:關' }}</span>
           </button>
 
-          <!-- Settings & Audio Slider Modal Trigger -->
           <button @click="showSettingsModal = true" 
-                  class="btn-3d px-3 py-2 bg-sky-400 text-white rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1">
+                  class="btn-3d px-2 sm:px-3 py-1.5 bg-sky-400 text-white rounded-xl text-xs font-bold flex items-center gap-1">
             <i class="fa-solid fa-sliders"></i>
-            <span>音量設定</span>
+            <span class="hidden sm:inline">音量</span>
           </button>
 
-          <!-- Stats / Error Log Trigger -->
           <button @click="showStatsModal = true" 
-                  class="btn-3d px-3 py-2 bg-amber-400 text-amber-900 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1">
+                  class="btn-3d px-2 sm:px-3 py-1.5 bg-amber-400 text-amber-900 rounded-xl text-xs font-bold flex items-center gap-1">
             <i class="fa-solid fa-trophy"></i>
             <span>學習榜</span>
           </button>
         </div>
-
       </div>
 
-      <!-- Mode Selector Tabs -->
-      <div class="grid grid-cols-2 gap-2 mt-4">
+      <!-- Mode Switcher Tabs -->
+      <div class="grid grid-cols-2 gap-2 mt-1.5">
         <button @click="switchMode('mode1')" 
-                class="btn-3d py-2.5 px-3 rounded-2xl font-black text-sm sm:text-base flex items-center justify-center gap-2 border-2 transition"
-                :class="currentMode === 'mode1' ? 'bg-pink-500 text-white border-pink-600 shadow-md scale-[1.02]' : 'bg-pink-100 text-pink-700 border-pink-200 hover:bg-pink-200'">
+                class="btn-3d py-1.5 px-2 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1 border transition"
+                :class="currentMode === 'mode1' ? 'bg-pink-500 text-white border-pink-600' : 'bg-pink-50 text-pink-700 border-pink-200'">
           <span>🎠 聽符號拼音</span>
-          <span class="bg-white/30 text-xs px-2 py-0.5 rounded-full hidden sm:inline">出題聽結果</span>
         </button>
 
         <button @click="switchMode('mode2')" 
-                class="btn-3d py-2.5 px-3 rounded-2xl font-black text-sm sm:text-base flex items-center justify-center gap-2 border-2 transition"
-                :class="currentMode === 'mode2' ? 'bg-purple-500 text-white border-purple-600 shadow-md scale-[1.02]' : 'bg-purple-100 text-purple-700 border-purple-200 hover:bg-purple-200'">
+                class="btn-3d py-1.5 px-2 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1 border transition"
+                :class="currentMode === 'mode2' ? 'bg-purple-500 text-white border-purple-600' : 'bg-purple-50 text-purple-700 border-purple-200'">
           <span>🎢 聽國字拼注音</span>
-          <span class="bg-white/30 text-xs px-2 py-0.5 rounded-full hidden sm:inline">聽單字自己拼</span>
         </button>
       </div>
     </header>
 
-    <!-- Main Game Display Area (Fix Tablet Vertical Large Gap) -->
-    <main class="flex flex-col gap-3 sm:gap-4">
+    <!-- Main Game Area (Adaptive height, no page scroll) -->
+    <main class="flex-1 min-h-0 flex flex-col justify-between py-1.5 sm:py-2 gap-1.5 sm:gap-2 overflow-hidden">
       
-      <!-- Top Stage: Mascot & Question Prompt Box -->
-      <section class="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-xl border-4 border-sky-300 relative overflow-hidden flex flex-col items-center justify-center text-center">
+      <!-- Top Stage: Prompt & Display Slot -->
+      <section class="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-4 shadow-md border-2 sm:border-4 border-sky-300 flex flex-col items-center justify-center text-center relative flex-shrink-0">
         
-        <!-- Background Decorative SVG Cloud -->
-        <div class="absolute -top-6 -left-6 opacity-20 text-sky-400 text-8xl pointer-events-none">
-          <i class="fa-solid fa-cloud"></i>
-        </div>
-        <div class="absolute -bottom-6 -right-6 opacity-20 text-yellow-400 text-8xl pointer-events-none">
-          <i class="fa-solid fa-star"></i>
-        </div>
-
         <!-- Mascot & Speech Bubble -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full mb-3">
-          
-          <!-- Park Mascot Icon -->
-          <div class="text-5xl sm:text-6xl animate-mascot transform hover:scale-110 transition cursor-pointer" @click="replayQuestionPrompt">
+        <div class="flex items-center justify-center gap-2 w-full mb-1">
+          <div class="text-3xl sm:text-4xl animate-mascot cursor-pointer" @click="replayQuestionPrompt">
             {{ mascotEmoji }}
           </div>
 
-          <!-- Prompt Speech Bubble -->
-          <div class="bg-amber-100 border-3 border-amber-300 rounded-2xl px-4 py-2 text-amber-900 font-bold text-base sm:text-lg flex items-center gap-2 shadow-sm max-w-md">
+          <div class="bg-amber-100 border-2 border-amber-300 rounded-xl px-3 py-1.5 text-amber-900 font-bold text-xs sm:text-base flex items-center gap-2 shadow-xs">
             <span>{{ questionPromptText }}</span>
-            <button @click="replayQuestionPrompt" class="w-8 h-8 bg-amber-400 hover:bg-amber-500 text-white rounded-full flex items-center justify-center shadow-md active:scale-90 transition">
-              <i class="fa-solid fa-volume-high text-sm"></i>
+            <button @click="replayQuestionPrompt" class="w-6 h-6 sm:w-7 sm:h-7 bg-amber-400 hover:bg-amber-500 text-white rounded-full flex items-center justify-center shadow-xs active:scale-90 transition">
+              <i class="fa-solid fa-volume-high text-xs"></i>
             </button>
           </div>
         </div>
 
-        <!-- Current Target Character (Mode 2) -->
-        <div v-if="currentMode === 'mode2'" class="my-2">
-          <div class="inline-block bg-gradient-to-r from-pink-400 to-purple-500 text-white font-black text-5xl sm:text-6xl px-8 py-3 rounded-3xl shadow-lg transform rotate-1 border-4 border-white">
+        <!-- Target Word Display (Mode 2) -->
+        <div v-if="currentMode === 'mode2'" class="my-0.5">
+          <div class="inline-block bg-gradient-to-r from-pink-400 to-purple-500 text-white font-black text-3xl sm:text-4xl px-5 py-1 rounded-2xl shadow-sm border-2 border-white">
             {{ currentTargetItem.word }}
           </div>
         </div>
 
-        <!-- User Answer / Display Slot -->
-        <div class="mt-2 w-full max-w-sm bg-sky-50 border-4 border-dashed border-sky-300 rounded-3xl p-3 flex items-center justify-center gap-3 min-h-[90px] relative shadow-inner">
-          <div class="text-xs text-sky-400 font-bold absolute top-2 left-3">你的拼音組合：</div>
+        <!-- User Selection Slot -->
+        <div class="w-full max-w-xs bg-sky-50 border-2 border-dashed border-sky-300 rounded-2xl p-1.5 flex items-center justify-center gap-2 relative min-h-[50px] sm:min-h-[60px]">
+          <div class="text-[10px] text-sky-400 font-bold absolute top-1 left-2">你的組合：</div>
           
-          <!-- Zhuyin Slot Display -->
-          <div class="flex items-center justify-center gap-2 mt-3">
-            <!-- Consonant / Initial (聲母) -->
-            <span class="min-w-[40px] text-3xl font-black text-sky-600 bg-white px-3 py-1 rounded-2xl border-2 border-sky-200 shadow-sm min-h-[50px] flex items-center justify-center">
+          <div class="flex items-center justify-center gap-1.5 mt-2">
+            <span class="min-w-[32px] text-xl sm:text-2xl font-black text-sky-600 bg-white px-2 py-0.5 rounded-xl border border-sky-200 min-h-[36px] flex items-center justify-center">
               {{ currentSelection.initial || '_' }}
             </span>
-            <!-- Medial (介母) -->
-            <span class="min-w-[40px] text-3xl font-black text-purple-600 bg-white px-3 py-1 rounded-2xl border-2 border-purple-200 shadow-sm min-h-[50px] flex items-center justify-center">
+            <span class="min-w-[32px] text-xl sm:text-2xl font-black text-purple-600 bg-white px-2 py-0.5 rounded-xl border border-purple-200 min-h-[36px] flex items-center justify-center">
               {{ currentSelection.medial || '_' }}
             </span>
-            <!-- Final (韻母) -->
-            <span class="min-w-[40px] text-3xl font-black text-emerald-600 bg-white px-3 py-1 rounded-2xl border-2 border-emerald-200 shadow-sm min-h-[50px] flex items-center justify-center">
+            <span class="min-w-[32px] text-xl sm:text-2xl font-black text-emerald-600 bg-white px-2 py-0.5 rounded-xl border border-emerald-200 min-h-[36px] flex items-center justify-center">
               {{ currentSelection.final || '_' }}
             </span>
-            <!-- Tone (聲調) -->
-            <span class="min-w-[40px] text-2xl font-black text-pink-600 bg-pink-100 px-3 py-1 rounded-2xl border-2 border-pink-300 shadow-sm min-h-[50px] flex items-center justify-center">
+            <span class="min-w-[32px] text-lg sm:text-xl font-black text-pink-600 bg-pink-100 px-2 py-0.5 rounded-xl border border-pink-300 min-h-[36px] flex items-center justify-center">
               {{ currentSelection.toneSymbol || '_' }}
             </span>
           </div>
 
-          <!-- Clear Selection Button -->
-          <button v-if="hasSelection" @click="clearSelection" class="absolute top-2 right-3 text-slate-400 hover:text-red-500 font-bold text-xs bg-white px-2 py-1 rounded-xl shadow-xs border">
-            <i class="fa-solid fa-rotate-left"></i> 重填
+          <button v-if="hasSelection" @click="clearSelection" class="absolute top-1 right-2 text-slate-400 hover:text-red-500 font-bold text-[10px] bg-white px-1.5 py-0.5 rounded-lg border">
+            重填
           </button>
         </div>
 
-        <!-- Feedback Banner -->
-        <div v-if="feedbackMessage" class="mt-3 px-4 py-1.5 rounded-full font-black text-sm sm:text-base animate-bounce" :class="feedbackIsCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'">
-          {{ feedbackMessage }}
-        </div>
+        <!-- Feedback & Action Buttons -->
+        <div class="mt-1.5 flex items-center justify-center gap-2 flex-wrap">
+          <div v-if="feedbackMessage" class="px-3 py-1 rounded-full font-black text-xs sm:text-sm animate-bounce" :class="feedbackIsCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'">
+            {{ feedbackMessage }}
+          </div>
 
-        <!-- Mode 1 / Mode 2 Action Control Buttons -->
-        <div class="mt-4 flex flex-wrap justify-center gap-3">
           <button @click="checkAnswer" 
-                  class="btn-3d px-6 py-3 bg-gradient-to-r from-emerald-400 to-green-500 text-white font-black text-lg sm:text-xl rounded-2xl border-2 border-green-600 flex items-center gap-2">
+                  class="btn-3d px-4 sm:px-6 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-400 to-green-500 text-white font-black text-sm sm:text-base rounded-xl border border-green-600 flex items-center gap-1">
             <i class="fa-solid fa-circle-check"></i>
             <span>{{ currentMode === 'mode1' ? '🔊 播放答案與結算' : '✨ 確認拼音' }}</span>
           </button>
 
           <button @click="nextQuestion(false)" 
-                  class="btn-3d px-4 py-3 bg-amber-400 text-amber-900 font-black text-base rounded-2xl border-2 border-amber-500 flex items-center gap-1">
+                  class="btn-3d px-3 py-1.5 sm:py-2 bg-amber-400 text-amber-900 font-black text-xs sm:text-sm rounded-xl border border-amber-500 flex items-center gap-1">
             <i class="fa-solid fa-forward"></i>
             <span>換一題</span>
           </button>
         </div>
-
       </section>
 
-      <!-- Bottom Stage: Interactive Zhuyin Keyboard Pad -->
-      <section class="bg-white/90 backdrop-blur-md rounded-3xl p-3 sm:p-5 shadow-xl border-4 border-pink-300 flex flex-col gap-3">
+      <!-- Bottom Stage: Compact Interactive Zhuyin Keyboard Pad -->
+      <section class="bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-3 shadow-md border-2 sm:border-4 border-pink-300 flex flex-col justify-between flex-1 min-h-0 overflow-y-auto">
         
-        <!-- Category Headers -->
-        <div class="text-xs sm:text-sm font-black text-slate-500 flex items-center justify-between border-b pb-2">
-          <span><i class="fa-solid fa-keyboard text-pink-500 mr-1"></i> 點選注音符號（按鈕會發音哦！）</span>
-          <span class="text-pink-600">聲母 • 介母 • 韻母 • 聲調</span>
-        </div>
-
-        <!-- 1. Initials (聲母 - ㄅ~ㄙ) -->
+        <!-- 1. Initials (聲母) -->
         <div>
-          <div class="text-xs font-bold text-sky-600 mb-1 flex items-center gap-1">
-            <span class="w-2 h-2 rounded-full bg-sky-500"></span> 聲母
+          <div class="text-[11px] font-bold text-sky-600 mb-0.5 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> 聲母
           </div>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+          <div class="flex flex-wrap gap-1 justify-between">
             <button v-for="s in INITIALS" :key="s" 
                     @click="selectSymbol('initial', s)"
-                    class="key-btn w-9 h-11 sm:w-11 sm:h-12 bg-sky-100 hover:bg-sky-200 border-2 border-sky-300 text-sky-800 font-black text-xl sm:text-2xl rounded-2xl flex items-center justify-center"
+                    class="key-btn flex-1 min-w-[28px] max-w-[40px] h-8 sm:h-10 bg-sky-100 hover:bg-sky-200 border border-sky-300 text-sky-900 font-black text-base sm:text-xl rounded-xl flex items-center justify-center"
                     :class="{'bg-sky-400 text-white border-sky-600 ring-2 ring-sky-300 scale-105': currentSelection.initial === s}">
               {{ s }}
             </button>
           </div>
         </div>
 
-        <!-- 2. Medials (介母 - ㄧㄨㄩ) & Finals (韻母 - ㄚ~ㄦ) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          
+        <!-- 2. Medials (介母) & Finals (韻母) -->
+        <div class="grid grid-cols-3 gap-1.5 my-1">
           <!-- Medials -->
           <div>
-            <div class="text-xs font-bold text-purple-600 mb-1 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-purple-500"></span> 介母
+            <div class="text-[11px] font-bold text-purple-600 mb-0.5 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> 介母
             </div>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <div class="flex flex-wrap gap-1">
               <button v-for="m in MEDIALS" :key="m" 
                       @click="selectSymbol('medial', m)"
-                      class="key-btn w-9 h-11 sm:w-11 sm:h-12 bg-purple-100 hover:bg-purple-200 border-2 border-purple-300 text-purple-800 font-black text-xl sm:text-2xl rounded-2xl flex items-center justify-center"
+                      class="key-btn flex-1 min-w-[28px] h-8 sm:h-10 bg-purple-100 hover:bg-purple-200 border border-purple-300 text-purple-900 font-black text-base sm:text-xl rounded-xl flex items-center justify-center"
                       :class="{'bg-purple-500 text-white border-purple-700 ring-2 ring-purple-300 scale-105': currentSelection.medial === m}">
                 {{ m }}
               </button>
@@ -335,34 +301,33 @@
           </div>
 
           <!-- Finals -->
-          <div class="sm:col-span-2">
-            <div class="text-xs font-bold text-emerald-600 mb-1 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> 韻母
+          <div class="col-span-2">
+            <div class="text-[11px] font-bold text-emerald-600 mb-0.5 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> 韻母
             </div>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <div class="flex flex-wrap gap-1 justify-between">
               <button v-for="f in FINALS" :key="f" 
                       @click="selectSymbol('final', f)"
-                      class="key-btn w-9 h-11 sm:w-11 sm:h-12 bg-emerald-100 hover:bg-emerald-200 border-2 border-emerald-300 text-emerald-800 font-black text-xl sm:text-2xl rounded-2xl flex items-center justify-center"
+                      class="key-btn flex-1 min-w-[26px] max-w-[36px] h-8 sm:h-10 bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 text-emerald-900 font-black text-base sm:text-xl rounded-xl flex items-center justify-center"
                       :class="{'bg-emerald-500 text-white border-emerald-700 ring-2 ring-emerald-300 scale-105': currentSelection.final === f}">
                 {{ f }}
               </button>
             </div>
           </div>
-
         </div>
 
-        <!-- 3. Tones (聲調 - 一聲~四聲、輕聲) -->
+        <!-- 3. Tones (聲調) -->
         <div>
-          <div class="text-xs font-bold text-pink-600 mb-1 flex items-center gap-1">
-            <span class="w-2 h-2 rounded-full bg-pink-500"></span> 聲調 (五種聲調)
+          <div class="text-[11px] font-bold text-pink-600 mb-0.5 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span> 聲調
           </div>
-          <div class="grid grid-cols-5 gap-1.5 sm:gap-2">
+          <div class="grid grid-cols-5 gap-1">
             <button v-for="t in TONES" :key="t.name" 
                     @click="selectTone(t)"
-                    class="key-btn py-2 bg-pink-100 hover:bg-pink-200 border-2 border-pink-300 text-pink-900 font-black text-xs sm:text-sm rounded-2xl flex flex-col items-center justify-center gap-0.5"
+                    class="key-btn py-1 bg-pink-100 hover:bg-pink-200 border border-pink-300 text-pink-900 font-black text-xs rounded-xl flex flex-col items-center justify-center"
                     :class="{'bg-pink-500 text-white border-pink-700 ring-2 ring-pink-300 scale-105': currentSelection.toneName === t.name}">
-              <span class="text-base sm:text-xl font-black">{{ t.symbol || 'ˉ' }}</span>
-              <span>{{ t.name }}</span>
+              <span class="text-sm font-black leading-none">{{ t.symbol || 'ˉ' }}</span>
+              <span class="text-[10px] leading-tight">{{ t.name }}</span>
             </button>
           </div>
         </div>
@@ -371,121 +336,106 @@
 
     </main>
 
-    <!-- Footer Credit -->
-    <footer class="mt-4 text-center text-xs font-bold text-slate-500">
-      🎈 奇幻注音童話樂園 • 為小朋友量身打造的注音練習工具
+    <!-- Footer Credit (Compact) -->
+    <footer class="text-center text-[10px] font-bold text-slate-500 py-0.5 flex-none">
+      🎈 奇幻注音童話樂園 • 為小朋友量身打造
     </footer>
 
     <!-- Settings / Volume Control Modal -->
     <div v-if="showSettingsModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div class="bg-white rounded-3xl border-4 border-sky-400 p-6 max-w-md w-full shadow-2xl relative animate-fade-in">
-        <button @click="showSettingsModal = false" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold">
+      <div class="bg-white rounded-3xl border-4 border-sky-400 p-5 max-w-md w-full shadow-2xl relative animate-fade-in">
+        <button @click="showSettingsModal = false" class="absolute top-4 right-4 w-7 h-7 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold">
           ✕
         </button>
-        <h2 class="text-xl font-black text-sky-600 mb-4 flex items-center gap-2">
+        <h2 class="text-lg font-black text-sky-600 mb-3 flex items-center gap-2">
           <i class="fa-solid fa-sliders"></i> 音量與聲音設定
         </h2>
 
-        <div class="space-y-5">
-          <!-- BGM Volume Slider -->
+        <div class="space-y-4 text-xs sm:text-sm">
           <div>
-            <div class="flex justify-between font-bold text-sm text-slate-700 mb-1">
-              <span><i class="fa-solid fa-music text-pink-500"></i> 背景音樂音量 (bgm.mp3)</span>
+            <div class="flex justify-between font-bold text-slate-700 mb-1">
+              <span><i class="fa-solid fa-music text-pink-500"></i> 背景音樂 (bgm.mp3)</span>
               <span>{{ Math.round(bgmVolume * 100) }}%</span>
             </div>
             <input type="range" min="0" max="1" step="0.05" v-model.number="bgmVolume" @input="updateBgmVolume" class="w-full accent-pink-500 h-2 bg-slate-200 rounded-lg cursor-pointer">
-            <p class="text-xs text-slate-400 mt-1">※ 請確定同目錄下有 `bgm.mp3` 檔案。</p>
           </div>
 
-          <!-- Voice / SFX Volume Slider -->
           <div>
-            <div class="flex justify-between font-bold text-sm text-slate-700 mb-1">
+            <div class="flex justify-between font-bold text-slate-700 mb-1">
               <span><i class="fa-solid fa-volume-high text-sky-500"></i> 語音與音效音量</span>
               <span>{{ Math.round(speechVolume * 100) }}%</span>
             </div>
             <input type="range" min="0" max="1" step="0.05" v-model.number="speechVolume" class="w-full accent-sky-500 h-2 bg-slate-200 rounded-lg cursor-pointer">
           </div>
 
-          <!-- Speech Speed Rate -->
           <div>
-            <div class="flex justify-between font-bold text-sm text-slate-700 mb-1">
+            <div class="flex justify-between font-bold text-slate-700 mb-1">
               <span><i class="fa-solid fa-gauge-high text-amber-500"></i> 語音朗讀速度</span>
               <span>{{ speechRate }}x</span>
             </div>
             <input type="range" min="0.5" max="1.2" step="0.1" v-model.number="speechRate" class="w-full accent-amber-500 h-2 bg-slate-200 rounded-lg cursor-pointer">
-            <p class="text-xs text-slate-400 mt-1">針對幼兒建議維持 0.8x 較清晰。</p>
           </div>
         </div>
 
-        <button @click="showSettingsModal = false" class="mt-6 w-full py-3 bg-sky-400 hover:bg-sky-500 text-white font-black rounded-2xl btn-3d">
+        <button @click="showSettingsModal = false" class="mt-5 w-full py-2.5 bg-sky-400 text-white font-black rounded-2xl btn-3d">
           完成設定
         </button>
       </div>
     </div>
 
-    <!-- Statistics & Mistake Log Modal -->
+    <!-- Statistics Modal -->
     <div v-if="showStatsModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div class="bg-white rounded-3xl border-4 border-amber-400 p-6 max-w-md w-full shadow-2xl relative max-h-[90vh] flex flex-col">
-        
-        <button @click="showStatsModal = false" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold">
+      <div class="bg-white rounded-3xl border-4 border-amber-400 p-5 max-w-md w-full shadow-2xl relative max-h-[85vh] flex flex-col">
+        <button @click="showStatsModal = false" class="absolute top-4 right-4 w-7 h-7 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold">
           ✕
         </button>
         
-        <h2 class="text-xl font-black text-amber-600 mb-3 flex items-center gap-2">
+        <h2 class="text-lg font-black text-amber-600 mb-2 flex items-center gap-2">
           <i class="fa-solid fa-trophy text-amber-500"></i> 學習挑戰紀錄榜
         </h2>
 
-        <!-- General Stats Box -->
-        <div class="grid grid-cols-3 gap-2 text-center bg-amber-50 p-3 rounded-2xl border border-amber-200 mb-4">
+        <div class="grid grid-cols-3 gap-2 text-center bg-amber-50 p-2.5 rounded-2xl border border-amber-200 mb-3">
           <div>
-            <div class="text-xs text-slate-500 font-bold">總答題數</div>
-            <div class="text-xl font-black text-amber-600">{{ userStats.totalPlayed }}</div>
+            <div class="text-[10px] text-slate-500 font-bold">總答題數</div>
+            <div class="text-lg font-black text-amber-600">{{ userStats.totalPlayed }}</div>
           </div>
           <div>
-            <div class="text-xs text-slate-500 font-bold">答對次數</div>
-            <div class="text-xl font-black text-emerald-600">{{ userStats.correctCount }}</div>
+            <div class="text-[10px] text-slate-500 font-bold">答對次數</div>
+            <div class="text-lg font-black text-emerald-600">{{ userStats.correctCount }}</div>
           </div>
           <div>
-            <div class="text-xs text-slate-500 font-bold">目前連勝</div>
-            <div class="text-xl font-black text-pink-600">🔥 {{ userStats.streak }}</div>
+            <div class="text-[10px] text-slate-500 font-bold">目前連勝</div>
+            <div class="text-lg font-black text-pink-600">🔥 {{ userStats.streak }}</div>
           </div>
         </div>
 
-        <!-- Most Frequently Mistaken Items -->
         <div class="flex-grow overflow-y-auto">
-          <h3 class="font-black text-slate-700 text-sm mb-2 flex items-center gap-1">
-            <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> 最常拼錯的注音與國字排行榜
+          <h3 class="font-black text-slate-700 text-xs mb-2 flex items-center gap-1">
+            <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> 最常拼錯的注音與國字
           </h3>
 
-          <div v-if="topMistakes.length === 0" class="text-center py-8 text-slate-400 font-bold text-sm">
-            🎉 目前還沒有拼錯紀錄，繼續保持棒棒的！
+          <div v-if="topMistakes.length === 0" class="text-center py-6 text-slate-400 font-bold text-xs">
+            🎉 目前還沒有拼錯紀錄，繼續保持！
           </div>
 
-          <div v-else class="space-y-2">
-            <div v-for="(item, idx) in topMistakes" :key="idx" class="flex items-center justify-between bg-slate-50 p-2.5 rounded-2xl border">
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full font-black text-xs flex items-center justify-center"
-                      :class="idx === 0 ? 'bg-rose-500 text-white' : idx === 1 ? 'bg-orange-400 text-white' : 'bg-slate-300 text-slate-700'">
-                  {{ idx + 1 }}
-                </span>
-                <span class="font-black text-lg text-slate-800">{{ item.name }}</span>
-              </div>
-              <div class="text-xs font-bold text-rose-500 bg-rose-50 px-2 py-1 rounded-lg border border-rose-200">
+          <div v-else class="space-y-1.5">
+            <div v-for="(item, idx) in topMistakes" :key="idx" class="flex items-center justify-between bg-slate-50 p-2 rounded-xl border text-xs">
+              <span class="font-black text-slate-800">{{ idx + 1 }}. {{ item.name }}</span>
+              <span class="font-bold text-rose-500 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
                 拼錯 {{ item.count }} 次
-              </div>
+              </span>
             </div>
           </div>
         </div>
 
-        <div class="mt-4 pt-3 border-t flex justify-between gap-2">
-          <button @click="resetStats" class="text-xs font-bold text-slate-400 hover:text-red-500 py-2 px-3">
+        <div class="mt-3 pt-2 border-t flex justify-between gap-2">
+          <button @click="resetStats" class="text-xs font-bold text-slate-400 hover:text-red-500 py-1">
             <i class="fa-solid fa-trash-can"></i> 清除紀錄
           </button>
-          <button @click="showStatsModal = false" class="py-2.5 px-6 bg-amber-400 hover:bg-amber-500 text-amber-950 font-black rounded-2xl btn-3d text-sm">
+          <button @click="showStatsModal = false" class="py-2 px-5 bg-amber-400 text-amber-950 font-black rounded-xl btn-3d text-xs">
             關閉
           </button>
         </div>
-
       </div>
     </div>
 
@@ -496,7 +446,6 @@
 
     createApp({
       setup() {
-        // --- Zhuyin Datasets ---
         const INITIALS = ['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ'];
         const MEDIALS = ['ㄧ','ㄨ','ㄩ'];
         const FINALS = ['ㄚ','ㄛ','ㄜ','ㄝ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ'];
@@ -508,7 +457,6 @@
           { name: '輕聲', symbol: '˙' }
         ];
 
-        // --- Preschool Word Bank with Zhuyin Mapping ---
         const WORD_BANK = [
           { word: '包', initial: 'ㄅ', medial: '', final: 'ㄠ', toneName: '一聲', toneSymbol: '' },
           { word: '貓', initial: 'ㄇ', medial: '', final: 'ㄠ', toneName: '一聲', toneSymbol: '' },
@@ -541,14 +489,13 @@
           { word: '耳', initial: '', medial: '', final: 'ㄦ', toneName: '三聲', toneSymbol: 'ˇ' }
         ];
 
-        // --- State Management ---
         const currentMode = ref('mode1');
         const currentTargetItem = ref(WORD_BANK[0]);
         const mascotEmoji = ref('🎡');
         const showSettingsModal = ref(false);
         const showStatsModal = ref(false);
+        const audioUnlocked = ref(false);
 
-        // Selection State
         const currentSelection = ref({
           initial: '',
           medial: '',
@@ -557,17 +504,14 @@
           toneSymbol: ''
         });
 
-        // Audio & Speech Settings (Default BGM lowered 50% to 0.15)
         const bgmPlaying = ref(false);
         const bgmVolume = ref(0.15);
-        const speechVolume = ref(0.9);
+        const speechVolume = ref(1.0);
         const speechRate = ref(0.8);
 
-        // Feedback
         const feedbackMessage = ref('');
         const feedbackIsCorrect = ref(false);
 
-        // LocalStorage Stats
         const userStats = ref({
           totalPlayed: 0,
           correctCount: 0,
@@ -575,7 +519,6 @@
           wrongMap: {}
         });
 
-        // --- Computed Properties ---
         const hasSelection = computed(() => {
           return currentSelection.value.initial || 
                  currentSelection.value.medial || 
@@ -604,47 +547,82 @@
           return arr.slice(0, 8);
         });
 
+        // --- Web Speech API (Enhanced Legacy Tablet & iOS Safari Compatibility) ---
         const speak = (text, onEndCallback = null) => {
           if (!('speechSynthesis' in window)) {
             if (onEndCallback) onEndCallback();
             return;
           }
 
-          // 喚醒語音合成引擎（防止瀏覽器閒置暫停）
-          if (window.speechSynthesis.paused) {
-            window.speechSynthesis.resume();
-          }
-          window.speechSynthesis.cancel();
+          try {
+            window.speechSynthesis.cancel(); // Force clean speech queue
 
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = 'zh-TW';
-          utterance.volume = speechVolume.value;
-          utterance.rate = speechRate.value;
-
-          const loadVoiceAndSpeak = () => {
-            const voices = window.speechSynthesis.getVoices();
-            const twVoice = voices.find(v => v.lang.includes('zh-TW') || v.lang.includes('zh_TW') || v.lang.startsWith('zh'));
-            if (twVoice) utterance.voice = twVoice;
-
-            if (onEndCallback) {
-              utterance.onend = onEndCallback;
+            if (window.speechSynthesis.paused) {
+              window.speechSynthesis.resume();
             }
 
-            window.speechSynthesis.speak(utterance);
-          };
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'zh-TW';
+            utterance.volume = speechVolume.value;
+            utterance.rate = speechRate.value;
 
-          if (window.speechSynthesis.getVoices().length === 0) {
-            window.speechSynthesis.onvoiceschanged = () => {
-              loadVoiceAndSpeak();
+            // Retain utterance on window object to prevent iOS/Android Garbage Collection bug mid-speech
+            window._activeUtterance = utterance;
+
+            const executeSpeak = () => {
+              const voices = window.speechSynthesis.getVoices() || [];
+              const twVoice = voices.find(v => v.lang.includes('zh-TW') || v.lang.includes('zh_TW') || (v.lang && v.lang.startsWith('zh')));
+              if (twVoice) utterance.voice = twVoice;
+
+              utterance.onend = () => {
+                window._activeUtterance = null;
+                if (onEndCallback) onEndCallback();
+              };
+
+              utterance.onerror = () => {
+                window._activeUtterance = null;
+                if (onEndCallback) onEndCallback();
+              };
+
+              window.speechSynthesis.speak(utterance);
             };
-          } else {
-            loadVoiceAndSpeak();
+
+            if (window.speechSynthesis.getVoices().length === 0) {
+              window.speechSynthesis.onvoiceschanged = () => {
+                executeSpeak();
+              };
+              // Fallback trigger if voiceschanged event doesn't fire on older Android
+              setTimeout(executeSpeak, 100);
+            } else {
+              executeSpeak();
+            }
+          } catch(e) {
+            if (onEndCallback) onEndCallback();
           }
+        };
+
+        // Touch unlock for mobile/tablet autoplay restrictions
+        const unlockAudioContext = () => {
+          audioUnlocked.value = true;
+
+          // Unlock Web Speech Engine
+          if ('speechSynthesis' in window) {
+            window.speechSynthesis.resume();
+            speak('歡迎來到注音樂園！');
+          }
+
+          // Unlock Web Audio Synth
+          try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            ctx.resume();
+          } catch(e) {}
         };
 
         const playSfx = (type) => {
           try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            if (ctx.state === 'suspended') ctx.resume();
+
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             osc.connect(gain);
@@ -670,7 +648,6 @@
           } catch(e) {}
         };
 
-        // BGM Controls
         const toggleBgm = () => {
           const bgm = document.getElementById('bgm-player');
           if (!bgm) return;
@@ -683,7 +660,7 @@
             bgm.play().then(() => {
               bgmPlaying.value = true;
             }).catch(() => {
-              alert('請點擊頁面任意位置以啟用背景音樂！');
+              unlockAudioContext();
             });
           }
         };
@@ -742,20 +719,19 @@
           const mascots = ['🎡', '🎠', '🎪', '🐰', '🐻', '🦁', '🐘', '🦄'];
           mascotEmoji.value = mascots[Math.floor(Math.random() * mascots.length)];
 
-          // 自動朗讀題目語音
-          setTimeout(() => {
-            speak(questionPromptText.value);
-          }, 150);
+          if (audioUnlocked.value) {
+            setTimeout(() => {
+              speak(questionPromptText.value);
+            }, 200);
+          }
         };
 
-        // Check Answer & Auto-Play Result
         const checkAnswer = () => {
           userStats.value.totalPlayed++;
 
           const target = currentTargetItem.value;
           const user = currentSelection.value;
 
-          // 彈性組合介母與韻母：解決 ㄧ/ㄨ/ㄩ 在介母或韻母欄位產生的對應差異
           const userVowels = (user.medial || '') + (user.final || '');
           const targetVowels = (target.medial || '') + (target.final || '');
 
@@ -777,14 +753,14 @@
             playSfx('correct');
 
             if (typeof confetti === 'function') {
-              confetti({ particleCount: 70, spread: 60, origin: { y: 0.7 } });
+              confetti({ particleCount: 60, spread: 50, origin: { y: 0.7 } });
             }
 
             const speechResult = `${user.initial} ${user.medial} ${user.final}，${user.toneName}。${targetWordText}！答對囉！`;
             speak(speechResult, () => {
               setTimeout(() => {
                 nextQuestion();
-              }, 1200);
+              }, 1000);
             });
 
           } else {
@@ -803,7 +779,6 @@
           }
         };
 
-        // Storage Persistence
         const saveStats = () => {
           localStorage.setItem('zhuyin_park_stats', JSON.stringify(userStats.value));
         };
@@ -829,9 +804,18 @@
 
         onMounted(() => {
           loadStats();
-          if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = () => {};
-          }
+          
+          // Global first touch event listener to guarantee audio engine unlock on older tablets
+          const globalUnlock = () => {
+            if (!audioUnlocked.value) {
+              unlockAudioContext();
+            }
+            window.removeEventListener('touchstart', globalUnlock);
+            window.removeEventListener('click', globalUnlock);
+          };
+          window.addEventListener('touchstart', globalUnlock, { passive: true });
+          window.addEventListener('click', globalUnlock, { passive: true });
+
           nextQuestion(true);
         });
 
@@ -854,8 +838,10 @@
           speechRate,
           showSettingsModal,
           showStatsModal,
+          audioUnlocked,
           userStats,
           topMistakes,
+          unlockAudioContext,
           switchMode,
           selectSymbol,
           selectTone,
